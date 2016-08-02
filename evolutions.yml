@@ -1,0 +1,427 @@
+---
+- :pokemon_id: :CATERPIE
+  :family_id: :FAMILY_CATERPIE
+  :candy: 12
+- :pokemon_id: :WEEDLE
+  :family_id: :FAMILY_WEEDLE
+  :candy: 12
+- :pokemon_id: :PIDGEY
+  :family_id: :FAMILY_PIDGEY
+  :candy: 12
+- :pokemon_id: :BULBASAUR
+  :family_id: :FAMILY_BULBASAUR
+  :candy: 25
+- :pokemon_id: :CHARMANDER
+  :family_id: :FAMILY_CHARMANDER
+  :candy: 25
+- :pokemon_id: :SQUIRTLE
+  :family_id: :FAMILY_SQUIRTLE
+  :candy: 25
+- :pokemon_id: :RATTATA
+  :family_id: :FAMILY_RATTATA
+  :candy: 25
+- :pokemon_id: :NIDORAN_FEMALE
+  :family_id: :FAMILY_NIDORAN_FEMALE
+  :candy: 25
+- :pokemon_id: :NIDORAN_MALE
+  :family_id: :FAMILY_NIDORAN_MALE
+  :candy: 25
+- :pokemon_id: :ODDISH
+  :family_id: :FAMILY_ODDISH
+  :candy: 25
+- :pokemon_id: :POLIWAG
+  :family_id: :FAMILY_POLIWAG
+  :candy: 25
+- :pokemon_id: :ABRA
+  :family_id: :FAMILY_ABRA
+  :candy: 25
+- :pokemon_id: :MACHOP
+  :family_id: :FAMILY_MACHOP
+  :candy: 25
+- :pokemon_id: :BELLSPROUT
+  :family_id: :FAMILY_BELLSPROUT
+  :candy: 25
+- :pokemon_id: :GEODUDE
+  :family_id: :FAMILY_GEODUDE
+  :candy: 25
+- :pokemon_id: :GASTLY
+  :family_id: :FAMILY_GASTLY
+  :candy: 25
+- :pokemon_id: :EEVEE
+  :family_id: :FAMILY_EEVEE
+  :candy: 25
+- :pokemon_id: :DRATINI
+  :family_id: :FAMILY_DRATINI
+  :candy: 25
+- :pokemon_id: :METAPOD
+  :family_id: :FAMILY_CATERPIE
+  :candy: 50
+- :pokemon_id: :KAKUNA
+  :family_id: :FAMILY_WEEDLE
+  :candy: 50
+- :pokemon_id: :PIDGEOTTO
+  :family_id: :FAMILY_PIDGEY
+  :candy: 50
+- :pokemon_id: :SPEAROW
+  :family_id: :FAMILY_SPEAROW
+  :candy: 50
+- :pokemon_id: :EKANS
+  :family_id: :FAMILY_EKANS
+  :candy: 50
+- :pokemon_id: :PIKACHU
+  :family_id: :FAMILY_PIKACHU
+  :candy: 50
+- :pokemon_id: :SANDSHREW
+  :family_id: :FAMILY_SANDSHREW
+  :candy: 50
+- :pokemon_id: :CLEFAIRY
+  :family_id: :FAMILY_CLEFABLE
+  :candy: 50
+- :pokemon_id: :VULPIX
+  :family_id: :FAMILY_VULPIX
+  :candy: 50
+- :pokemon_id: :JIGGLYPUFF
+  :family_id: :FAMILY_JIGGLYPUFF
+  :candy: 50
+- :pokemon_id: :ZUBAT
+  :family_id: :FAMILY_ZUBAT
+  :candy: 50
+- :pokemon_id: :PARAS
+  :family_id: :FAMILY_PARAS
+  :candy: 50
+- :pokemon_id: :VENONAT
+  :family_id: :FAMILY_VENONAT
+  :candy: 50
+- :pokemon_id: :DIGLETT
+  :family_id: :FAMILY_DIGLETT
+  :candy: 50
+- :pokemon_id: :MEOWTH
+  :family_id: :FAMILY_MEOWTH
+  :candy: 50
+- :pokemon_id: :PSYDUCK
+  :family_id: :FAMILY_PSYDUCK
+  :candy: 50
+- :pokemon_id: :MANKEY
+  :family_id: :FAMILY_MANKEY
+  :candy: 50
+- :pokemon_id: :GROWLITHE
+  :family_id: :FAMILY_GROWLITHE
+  :candy: 50
+- :pokemon_id: :TENTACOOL
+  :family_id: :FAMILY_TENTACOOL
+  :candy: 50
+- :pokemon_id: :PONYTA
+  :family_id: :FAMILY_PONYTA
+  :candy: 50
+- :pokemon_id: :SLOWPOKE
+  :family_id: :FAMILY_SLOWPOKE
+  :candy: 50
+- :pokemon_id: :MAGNEMITE
+  :family_id: :FAMILY_MAGNEMITE
+  :candy: 50
+- :pokemon_id: :DODUO
+  :family_id: :FAMILY_DODUO
+  :candy: 50
+- :pokemon_id: :SEEL
+  :family_id: :FAMILY_SEEL
+  :candy: 50
+- :pokemon_id: :GRIMER
+  :family_id: :FAMILY_GRIMER
+  :candy: 50
+- :pokemon_id: :SHELLDER
+  :family_id: :FAMILY_SHELLDER
+  :candy: 50
+- :pokemon_id: :DROWZEE
+  :family_id: :FAMILY_DROWZEE
+  :candy: 50
+- :pokemon_id: :KRABBY
+  :family_id: :FAMILY_KRABBY
+  :candy: 50
+- :pokemon_id: :VOLTORB
+  :family_id: :FAMILY_VOLTORB
+  :candy: 50
+- :pokemon_id: :EXEGGCUTE
+  :family_id: :FAMILY_EXEGGCUTE
+  :candy: 50
+- :pokemon_id: :CUBONE
+  :family_id: :FAMILY_CUBONE
+  :candy: 50
+- :pokemon_id: :KOFFING
+  :family_id: :FAMILY_KOFFING
+  :candy: 50
+- :pokemon_id: :RHYHORN
+  :family_id: :FAMILY_RHYHORN
+  :candy: 50
+- :pokemon_id: :HORSEA
+  :family_id: :FAMILY_HORSEA
+  :candy: 50
+- :pokemon_id: :GOLDEEN
+  :family_id: :FAMILY_GOLDEEN
+  :candy: 50
+- :pokemon_id: :STARYU
+  :family_id: :FAMILY_STARYU
+  :candy: 50
+- :pokemon_id: :OMANYTE
+  :family_id: :FAMILY_OMANYTE
+  :candy: 50
+- :pokemon_id: :KABUTO
+  :family_id: :FAMILY_KABUTO
+  :candy: 50
+- :pokemon_id: :IVYSAUR
+  :family_id: :FAMILY_BULBASAUR
+  :candy: 100
+- :pokemon_id: :CHARMELEON
+  :family_id: :FAMILY_CHARMANDER
+  :candy: 100
+- :pokemon_id: :WARTORTLE
+  :family_id: :FAMILY_SQUIRTLE
+  :candy: 100
+- :pokemon_id: :NIDORINA
+  :family_id: :FAMILY_NIDORAN_FEMALE
+  :candy: 100
+- :pokemon_id: :NIDORINO
+  :family_id: :FAMILY_NIDORAN_MALE
+  :candy: 100
+- :pokemon_id: :GLOOM
+  :family_id: :FAMILY_ODDISH
+  :candy: 100
+- :pokemon_id: :POLIWHIRL
+  :family_id: :FAMILY_POLIWAG
+  :candy: 100
+- :pokemon_id: :KADABRA
+  :family_id: :FAMILY_ABRA
+  :candy: 100
+- :pokemon_id: :MACHOKE
+  :family_id: :FAMILY_MACHOP
+  :candy: 100
+- :pokemon_id: :WEEPINBELL
+  :family_id: :FAMILY_BELLSPROUT
+  :candy: 100
+- :pokemon_id: :GRAVELER
+  :family_id: :FAMILY_GEODUDE
+  :candy: 100
+- :pokemon_id: :HAUNTER
+  :family_id: :FAMILY_GASTLY
+  :candy: 100
+- :pokemon_id: :DRAGONAIR
+  :family_id: :FAMILY_DRATINI
+  :candy: 100
+- :pokemon_id: :MAGIKARP
+  :family_id: :FAMILY_MAGIKARP
+  :candy: 400
+- :pokemon_id: :VENUSAUR
+  :family_id: :FAMILY_BULBASAUR
+  :candy:
+- :pokemon_id: :CHARIZARD
+  :family_id: :FAMILY_CHARMANDER
+  :candy:
+- :pokemon_id: :BLASTOISE
+  :family_id: :FAMILY_SQUIRTLE
+  :candy:
+- :pokemon_id: :BUTTERFREE
+  :family_id: :FAMILY_CATERPIE
+  :candy:
+- :pokemon_id: :BEEDRILL
+  :family_id: :FAMILY_WEEDLE
+  :candy:
+- :pokemon_id: :PIDGEOT
+  :family_id: :FAMILY_PIDGEY
+  :candy:
+- :pokemon_id: :RATICATE
+  :family_id: :FAMILY_RATTATA
+  :candy:
+- :pokemon_id: :FEAROW
+  :family_id: :FAMILY_SPEAROW
+  :candy:
+- :pokemon_id: :ARBOK
+  :family_id: :FAMILY_EKANS
+  :candy:
+- :pokemon_id: :RAICHU
+  :family_id: :FAMILY_PIKACHU
+  :candy:
+- :pokemon_id: :SANDSLASH
+  :family_id: :FAMILY_SANDSHREW
+  :candy:
+- :pokemon_id: :NIDOQUEEN
+  :family_id: :FAMILY_NIDORAN_FEMALE
+  :candy:
+- :pokemon_id: :NIDOKING
+  :family_id: :FAMILY_NIDORAN_MALE
+  :candy:
+- :pokemon_id: :CLEFABLE
+  :family_id: :FAMILY_CLEFAIRY
+  :candy:
+- :pokemon_id: :NINETALES
+  :family_id: :FAMILY_VULPIX
+  :candy:
+- :pokemon_id: :WIGGLYTUFF
+  :family_id: :FAMILY_JIGGLYPUFF
+  :candy:
+- :pokemon_id: :VILEPLUME
+  :family_id: :FAMILY_ODDISH
+  :candy:
+- :pokemon_id: :PARASECT
+  :family_id: :FAMILY_PARAS
+  :candy:
+- :pokemon_id: :VENOMOTH
+  :family_id: :FAMILY_VENONAT
+  :candy:
+- :pokemon_id: :GOLBAT
+  :family_id: :FAMILY_ZUBAT
+  :candy:
+- :pokemon_id: :DUGTRIO
+  :family_id: :FAMILY_DIGLETT
+  :candy:
+- :pokemon_id: :PERSIAN
+  :family_id: :FAMILY_MEOWTH
+  :candy:
+- :pokemon_id: :GOLDUCK
+  :family_id: :FAMILY_PSYDUCK
+  :candy:
+- :pokemon_id: :PRIMEAPE
+  :family_id: :FAMILY_MANKEY
+  :candy:
+- :pokemon_id: :ARCANINE
+  :family_id: :FAMILY_GROWLITHE
+  :candy:
+- :pokemon_id: :POLIWRATH
+  :family_id: :FAMILY_POLIWAG
+  :candy:
+- :pokemon_id: :ALAKAZAM
+  :family_id: :FAMILY_ABRA
+  :candy:
+- :pokemon_id: :MACHAMP
+  :family_id: :FAMILY_MACHOP
+  :candy:
+- :pokemon_id: :VICTREEBEL
+  :family_id: :FAMILY_BELLSPROUT
+  :candy:
+- :pokemon_id: :TENTACRUEL
+  :family_id: :FAMILY_TENTACOOL
+  :candy:
+- :pokemon_id: :GOLEM
+  :family_id: :FAMILY_GEODUDE
+  :candy:
+- :pokemon_id: :RAPIDASH
+  :family_id: :FAMILY_PONYTA
+  :candy:
+- :pokemon_id: :SLOWBRO
+  :family_id: :FAMILY_SLOWPOKE
+  :candy:
+- :pokemon_id: :FARFETCHD
+  :family_id: :FAMILY_FARFETCHD
+  :candy:
+- :pokemon_id: :LICKITUNG
+  :family_id: :FAMILY_LICKITUNG
+  :candy:
+- :pokemon_id: :DODRIO
+  :family_id: :FAMILY_DODUO
+  :candy:
+- :pokemon_id: :DEWGONG
+  :family_id: :FAMILY_SEEL
+  :candy:
+- :pokemon_id: :MUK
+  :family_id: :FAMILY_GRIMER
+  :candy:
+- :pokemon_id: :CLOYSTER
+  :family_id: :FAMILY_SHELLDER
+  :candy:
+- :pokemon_id: :GENGAR
+  :family_id: :FAMILY_GASTLY
+  :candy:
+- :pokemon_id: :HYPNO
+  :family_id: :FAMILY_DROWZEE
+  :candy:
+- :pokemon_id: :KINGLER
+  :family_id: :FAMILY_KRABBY
+  :candy:
+- :pokemon_id: :ELECTRODE
+  :family_id: :FAMILY_VOLTORB
+  :candy:
+- :pokemon_id: :EXEGGUTOR
+  :family_id: :FAMILY_EXEGGCUTE
+  :candy:
+- :pokemon_id: :MAROWAK
+  :family_id: :FAMILY_CUBONE
+  :candy:
+- :pokemon_id: :HITMONLEE
+  :family_id: :FAMILY_HITMONLEE
+  :candy:
+- :pokemon_id: :HITMONCHAN
+  :family_id: :FAMILY_HITMONCHAN
+  :candy:
+- :pokemon_id: :WEEZING
+  :family_id: :FAMILY_KOFFING
+  :candy:
+- :pokemon_id: :KANGASKHAN
+  :family_id: :FAMILY_KANGASKHAN
+  :candy:
+- :pokemon_id: :SEAKING
+  :family_id: :FAMILY_GOLDEEN
+  :candy:
+- :pokemon_id: :STARMIE
+  :family_id: :FAMILY_STARYU
+  :candy:
+- :pokemon_id: :MR_MIME
+  :family_id: :FAMILY_MR_MIME
+  :candy:
+- :pokemon_id: :JYNX
+  :family_id: :FAMILY_JYNX
+  :candy:
+- :pokemon_id: :PINSIR
+  :family_id: :FAMILY_PINSIR
+  :candy:
+- :pokemon_id: :TAUROS
+  :family_id: :FAMILY_TAUROS
+  :candy:
+- :pokemon_id: :GYARADOS
+  :family_id: :FAMILY_MAGIKARP
+  :candy:
+- :pokemon_id: :LAPRAS
+  :family_id: :FAMILY_LAPRAS
+  :candy:
+- :pokemon_id: :DITTO
+  :family_id: :FAMILY_DITTO
+  :candy:
+- :pokemon_id: :VAPOREON
+  :family_id: :FAMILY_EEVEE
+  :candy:
+- :pokemon_id: :JOLTEON
+  :family_id: :FAMILY_EEVEE
+  :candy:
+- :pokemon_id: :FLAREON
+  :family_id: :FAMILY_EEVEE
+  :candy:
+- :pokemon_id: :CHANSEY
+  :family_id: :FAMILY_CHANSEY
+  :candy:
+- :pokemon_id: :OMASTAR
+  :family_id: :FAMILY_OMANYTE
+  :candy:
+- :pokemon_id: :KABUTOPS
+  :family_id: :FAMILY_KABUTO
+  :candy:
+- :pokemon_id: :AERODACTYL
+  :family_id: :FAMILY_AERODACTYL
+  :candy:
+- :pokemon_id: :SNORLAX
+  :family_id: :FAMILY_SNORLAX
+  :candy:
+- :pokemon_id: :ARTICUNO
+  :family_id: :FAMILY_ARTICUNO
+  :candy:
+- :pokemon_id: :ZAPDOS
+  :family_id: :FAMILY_ZAPDOS
+  :candy:
+- :pokemon_id: :MOLTRES
+  :family_id: :FAMILY_MOLTRES
+  :candy:
+- :pokemon_id: :DRAGONITE
+  :family_id: :FAMILY_DRATINI
+  :candy:
+- :pokemon_id: :MEWTWO
+  :family_id: :FAMILY_MEWTWO
+  :candy:
+- :pokemon_id: :MEW
+  :family_id: :FAMILY_MEW
+  :candy:
