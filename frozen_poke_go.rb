@@ -2,16 +2,20 @@ require 'poke-api'
 require 'io/console'
 require 'pp'
 
+Poke::API::Logging.log_level = :WARN
+
 @levels = YAML.load(File.read('levels.yml'))
 @evolutions = YAML.load(File.read('evolutions.yml'))
 @pokemon_families = Hash[*@evolutions.map{|e| [e[:pokemon_id], e[:family_id]]}.flatten]
 @pokemon_evolution_candies = Hash[*@evolutions.map{|e| [e[:pokemon_id], e[:candy]]}.flatten]
 
-def set_stat_nicknames pokemon
+def set_stat_nickname pokemon
   atk = pokemon[:individual_attack]
   dfs = pokemon[:individual_defense]
   sta = pokemon[:individual_stamina]
-  @client.nickname_pokemon(pokemon_id: pokemon[:id], nickname: ("%02d: %d/%d/%d" % [atk+dfs+sta, atk, dfs, sta]))
+  nickname = ("%02d: %d/%d/%d" % [atk+dfs+sta, atk, dfs, sta])
+  @client.nickname_pokemon(pokemon_id: pokemon[:id], nickname: nickname)
+  nickname
 end
 
 def get_level pokemon
@@ -34,6 +38,7 @@ end
   @username = gets.chomp
   print "Password for #@username: "
   @password = STDIN.noecho(&:gets).chomp
+  puts ''
 end
 
 @client = Poke::API::Client.new
@@ -71,13 +76,33 @@ unsafe = irrelevent.group_by{|x| x[:pokemon_id]}.find_all{|id, all_pk|
 }.map(&:last).flatten
 safe = (irrelevent - unsafe)
 
-unsafe.find_all{|pk| pk[:nickname] != 'X'}.each{|pk| @client.nickname_pokemon(pokemon_id: pk[:id], nickname: 'X')}
-relevent.map{|k,v| v}.flatten.find_all{|pk| pk[:nickname].empty?}.each{|pk| set_stat_nicknames pk}
-pp @client.call.response
+poke_groups.each{|species, pk_list|
+  family  = @pokemon_families[species]
+  unless family_candy[family].nil? or @pokemon_evolution_candies[species].nil?
+    release_unsafe_list = []
+    evo_able = evolutions_possible(family_candy[family], @pokemon_evolution_candies[species], true)
+	safe_count = safe.find_all{|pk| pk[:pokemon_id] == species}.size
+	if (evo_able < pk_list.size and evo_able > safe_count)
+	  drop_count = pk_list.size - evo_able
+	  release_unsafe_list = unsafe.find_all{|pk| pk[:pokemon_id] == species}.sample(drop_count)
+	end
+    puts "#{species}: #{evo_able}/#{pk_list.size} [unsafe release count: #{release_unsafe_list.size}]"
+	safe += release_unsafe_list
+  end
+}
 
+relevent_unnamed = relevent.map{|k,v| v}.flatten.find_all{|pk| pk[:nickname].empty?}
+unsafe_unnamed = unsafe.find_all{|pk| pk[:nickname] != 'X'}
+unsafe_unnamed.each{|pk| @client.nickname_pokemon(pokemon_id: pk[:id], nickname: 'X')}
+relevent_unnamed.each{|pk| puts "Adding nickname of #{set_stat_nickname(pk)} to CP #{pk[:cp]} #{pk[:pokemon_id]}"}
+puts "Marking unsafe: #{unsafe_unnamed.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
+#pp @client.call.response
+
+puts "Releasing #{safe.size} safe pokemon: #{safe.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
 r1 = Random.new
-safe.each{|pk| 
-  @client.release_pokemon(pokemon_id: pk[:id])
-  pp @client.call.response
+safe.each{|pk|
+  puts "Releasing #{pk[:pokemon_id]}..."
   sleep r1.rand(5.0..7.0)
+  @client.release_pokemon(pokemon_id: pk[:id])
+  @client.call
 }
