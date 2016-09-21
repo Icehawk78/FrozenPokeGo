@@ -76,11 +76,13 @@ unsafe = irrelevent.group_by{|x| x[:pokemon_id]}.find_all{|id, all_pk|
 }.map(&:last).flatten
 safe = (irrelevent - unsafe)
 
+total_evolutions = 0
 poke_groups.each{|species, pk_list|
   family  = @pokemon_families[species]
   unless family_candy[family].nil? or @pokemon_evolution_candies[species].nil?
     release_unsafe_list = []
     evo_able = evolutions_possible(family_candy[family], @pokemon_evolution_candies[species], true)
+	total_evolutions += evo_able
 	safe_count = safe.find_all{|pk| pk[:pokemon_id] == species}.size
 	if (evo_able < pk_list.size and evo_able > safe_count)
 	  drop_count = pk_list.size - evo_able
@@ -90,6 +92,8 @@ poke_groups.each{|species, pk_list|
 	safe += release_unsafe_list
   end
 }
+
+puts "Total evolutions possible: #{total_evolutions}"
 
 relevent_unnamed = relevent.map{|k,v| v}.flatten.find_all{|pk| pk[:nickname].empty?}
 unsafe_unnamed = unsafe.find_all{|pk| pk[:nickname] != 'X'}
