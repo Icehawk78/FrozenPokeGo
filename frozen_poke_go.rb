@@ -9,6 +9,81 @@ Poke::API::Logging.log_level = :WARN
 @pokemon_families = Hash[*@evolutions.map{|e| [e[:pokemon_id], e[:family_id]]}.flatten]
 @pokemon_evolution_candies = Hash[*@evolutions.map{|e| [e[:pokemon_id], e[:candy]]}.flatten]
 
+@evolution_whitelist = [
+  :BULBASAUR,
+  :IVYSAUR,
+  :CHARMANDER,
+  :CHARMELEON,
+#  :SQUIRTLE,
+  :WARTORTLE,
+#  :CATERPIE,
+  :METAPOD,
+  :WEEDLE,
+#  :KAKUNA,
+  :PIDGEY,
+#  :PIDGEOTTO,
+  :RATTATA,
+  :SPEAROW,
+  :EKANS,
+  :PIKACHU,
+  :SANDSHREW,
+#  :NIDORAN_FEMALE,
+  :NIDORINA,
+#  :NIDORAN_MALE,
+  :NIDORINO,
+  :CLEFAIRY,
+  :VULPIX,
+  :JIGGLYPUFF,
+  :ZUBAT,
+#  :ODDISH,
+  :GLOOM,
+  :PARAS,
+  :VENONAT,
+  :DIGLETT,
+  :MEOWTH,
+  :PSYDUCK,
+  :MANKEY,
+  :GROWLITHE,
+#  :POLIWAG,
+  :POLIWHIRL,
+  :ABRA,
+  :KADABRA,
+  :MACHOP,
+  :MACHOKE,
+#  :BELLSPROUT,
+  :WEEPINBELL,
+  :TENTACOOL,
+  :GEODUDE,
+  :GRAVELER,
+  :PONYTA,
+  :SLOWPOKE,
+  :MAGNEMITE,
+  :DODUO,
+  :SEEL,
+  :GRIMER,
+  :SHELLDER,
+#  :GASTLY,
+#  :HAUNTER,
+  :DROWZEE,
+  :KRABBY,
+  :VOLTORB,
+  :EXEGGCUTE,
+  :CUBONE,
+  :KOFFING,
+  :RHYHORN,
+  :TANGELA,
+  :HORSEA,
+  :SEADRA,
+  :GOLDEEN,
+  :STARYU,
+  :MAGIKARP,
+#  :EEVEE,
+  :OMANYTE,
+  :KABUTO
+#  :DRATINI,
+#  :DRAGONAIR
+]
+
 def set_stat_nickname pokemon
   atk = pokemon[:individual_attack]
   dfs = pokemon[:individual_defense]
@@ -16,6 +91,10 @@ def set_stat_nickname pokemon
   nickname = ("%02d: %d/%d/%d" % [atk+dfs+sta, atk, dfs, sta])
   @client.nickname_pokemon(pokemon_id: pokemon[:id], nickname: nickname)
   nickname
+end
+
+def get_stat_total pokemon
+  pokemon[:individual_attack] + pokemon[:individual_defense] + pokemon[:individual_stamina]
 end
 
 def get_level pokemon
@@ -39,6 +118,12 @@ end
   print "Password for #@username: "
   @password = STDIN.noecho(&:gets).chomp
   puts ''
+  print 'Release safe Pokemon? (y/n)  '
+  @do_safe_release = gets.chomp.upcase == 'Y'
+  print 'Release safe amount of unsafe Pokemon? (y/n)  '
+  @do_unsafe_release = gets.chomp.upcase == 'Y'
+  print 'Evolve whitelisted species? (y/n)  '
+  @do_evolve = gets.chomp.upcase == 'Y'
 end
 
 @client = Poke::API::Client.new
@@ -76,6 +161,7 @@ unsafe = irrelevent.group_by{|x| x[:pokemon_id]}.find_all{|id, all_pk|
 }.map(&:last).flatten
 safe = (irrelevent - unsafe)
 
+evolve_list = []
 total_evolutions = 0
 poke_groups.each{|species, pk_list|
   family  = @pokemon_families[species]
@@ -83,13 +169,16 @@ poke_groups.each{|species, pk_list|
     release_unsafe_list = []
     evo_able = evolutions_possible(family_candy[family], @pokemon_evolution_candies[species], true)
 	total_evolutions += evo_able
-	safe_count = safe.find_all{|pk| pk[:pokemon_id] == species}.size
-	if (evo_able < pk_list.size and evo_able > safe_count)
+	relevent_count = relevent.find_all{|pk| pk[:pokemon_id] == species}.size
+	if (evo_able < pk_list.size and evo_able > relevent_count)
 	  drop_count = pk_list.size - evo_able
 	  release_unsafe_list = unsafe.find_all{|pk| pk[:pokemon_id] == species}.sample(drop_count)
 	end
-    puts "#{species}: #{evo_able}/#{pk_list.size} [unsafe release count: #{release_unsafe_list.size}]"
-	safe += release_unsafe_list
+    puts "#{species}: #{evo_able}/#{pk_list.size} [potential unsafe release count: #{release_unsafe_list.size}]"
+	if (evo_able >= relevent[species].size)
+	  evolve_list += relevent[species]
+	end
+	safe += release_unsafe_list if @do_unsafe_release
   end
 }
 
@@ -102,11 +191,17 @@ relevent_unnamed.each{|pk| puts "Adding nickname of #{set_stat_nickname(pk)} to 
 puts "Marking unsafe: #{unsafe_unnamed.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
 #pp @client.call.response
 
-puts "Releasing #{safe.size} safe pokemon: #{safe.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
-r1 = Random.new
-safe.each{|pk|
-  puts "Releasing #{pk[:pokemon_id]}..."
-  sleep r1.rand(5.0..7.0)
-  @client.release_pokemon(pokemon_id: pk[:id])
+if (@do_safe_release)
+  puts "Releasing #{safe.size} safe pokemon: #{safe.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
+  r1 = Random.new
+  safe.each{|pk|
+    puts "Releasing #{pk[:pokemon_id]}..."
+    sleep r1.rand(5.0..7.0)
+    @client.release_pokemon(pokemon_id: pk[:id])
+    @client.call
+  }
+else
+  puts "Marking safe pokemon: #{safe.group_by{|pk| pk[:pokemon_id]}.map{|k,v| "#{v.size} #{k}"} * ', '}"
+  safe.find_all{|pk| pk[:nickname] != 'Release'}.each{|pk| @client.nickname_pokemon(pokemon_id: pk[:id], nickname: 'Release')}
   @client.call
-}
+end
